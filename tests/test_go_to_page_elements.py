@@ -10,3 +10,4 @@ def test_go_to_page_elements(browser):
     assert demo_qa_page.equal_url()
     demo_qa_page.btn_elements.click()
     assert elements_page.equal_url()
+
