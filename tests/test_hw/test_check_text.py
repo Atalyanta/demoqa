@@ -1,17 +1,27 @@
 from pages.demoqa import Demoqa
+from pages.elements_page import ElementsPage
+from components.components import WebElement
+from pages.base_page import BasePage
 
 
-def test_check_text1(browser):
-    demo_qa_page = Demoqa(browser)
+def get_text(self):
+    return str(self.find_element('.© 2013 - 2020 TOOLSQA.COM | ALL RIGHTS RESERVED.').text)
 
-    demo_qa_page.visit()
+def test_page_elements(browser):
+    elements_page = ElementsPage(browser)
 
-    browser.find_element(‘© 2013 - 2020 TOOLSQA.COM | ALL RIGHTS RESERVED.’, '#app > footer > a')
+    elements_page.visit()
+    assert elements_page.text_elements.get_text() == 'Elements'
+    assert elements_page.icon.exist()
+    assert elements_page.btn_sidebar_first.exist()
+    assert elements_page.btn_sidebar_first_textbox.exist()
 
-def test_check_text2(browser):
-    demo_qa_page = Demoqa(browser)
 
-    demo_qa_page.visit()
-    demo_qa_page.btn_elements.click()
-    browser.find_element('Please select an item from left to start practice.')
 
+
+
+
+
+
+
+# driver это то же, что и browser

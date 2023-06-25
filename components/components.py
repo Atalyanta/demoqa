@@ -8,18 +8,20 @@ class WebElement:
         self.locator = locator
 
     def click(self):            # метод который кликает по элементу
-        self.driver.find_element().click()
+        self.find_element().click()
 
-    def find_element(self):
+    def find_element(self):         # метод ищет элемент
         return self.driver.find_element(By.CSS_SELECTOR, self.locator)
 
-    def exist(self):
+    def exist(self):            # метод, который проверяет существует ли элемент
         try:
             self.find_element()
         except NoSuchElementException:
             return False
         return True
 
-    def get_text(self):
-        return str(self.find_element().text
+    def get_text(self):             # метод ищет текст
+        return str(self.find_element().text)
 
+    def visible(self):
+        return self.find_element().is_displayed()
