@@ -19,13 +19,13 @@ class BasePage:
             return True
         return False
 
-    def back(self):         #всегда после visit, кнопка "назад" в браузере
+    def back(self):         #всегда после visit, кнопка "назад" в браузере. можно вызывать и от browser, и от страницы, но лучше писать от страницы, чтобы понятно, где мы находимся
         self.driver.back()
 
-    def forward(self):      #всегда после visit, кнопка "вперед" в браузере
+    def forward(self):      #всегда после visit, кнопка "вперед" в браузере. +см. коммент выше
         self.driver.forward()
 
-    def refresh(self):      #всегда после visit, обновить в браузере
+    def refresh(self):      #всегда после visit, обновить в браузере. + см. коммент выше
         self.driver.refresh()
 
     def get_title(self):    #всегда после visit, тайтл в браузере
