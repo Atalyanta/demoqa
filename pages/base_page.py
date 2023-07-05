@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 import time
+import logging
 
 
 class BasePage:
@@ -31,7 +32,12 @@ class BasePage:
     def get_title(self):    #всегда после visit, тайтл в браузере
         return self.driver.title
 
-
+    def alert(self):        # возвращает вслывающее окно, можно проверить, что окно отсутствует
+        try:                # чтобы проверить, что нет всплыв окна, надо вызвать этот метод с assert not
+            return self.driver.switch_to.alert  # лучше в конце каждого теста делать проверку на это
+        except Exception as ex:
+            logging.log(1, ex)      #лог - это вывести в консоль False
+            return False
 
     #def find_element(self):
     #    time.sleep(3)
